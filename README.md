@@ -20,7 +20,7 @@
 
 ## 動作環境
 - [BveEX](https://github.com/automatic9045/BveEX)
-    - [ver1.0-RC9 - v1.0.40627.1](https://github.com/automatic9045/BveEX/releases/tag/v1.0.40627.1) or later
+    - [ver2.0 - v2.0.41222.1](https://github.com/automatic9045/BveEX/releases/tag/v2.0.41222.1) or later
 - Win10 22H2, Win11 22H2 or later
     - Visual Studio 2022
         - Microsoft Visual Studio Community 2022 (64 ビット) - Current Version 17.5.3
@@ -29,8 +29,8 @@
 
 
 ## 依存環境
-- [BveEx.CoreExtensions](https://www.nuget.org/packages/BveEx.CoreExtensions/) (1.0.0-rc9)
-- [BveEx.PluginHost](https://www.nuget.org/packages/BveEx.PluginHost/) (1.0.0-rc9)
+- [BveEx.CoreExtensions](https://www.nuget.org/packages/BveEx.CoreExtensions/) (2.0.0)
+    - [BveEx.PluginHost](https://www.nuget.org/packages/BveEx.PluginHost/) (2.0.0)
 
 間接参照を含めたすべての依存情報については、各プロジェクトのフォルダにある `packages.lock.json` をご確認ください。
 
