@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AtsEx.PluginHost.Plugins;
+using BveEx.PluginHost.Plugins;
 
-namespace AtsExCsTemplate.VehiclePlugin
+namespace BveExCsTemplate.VehiclePlugin
 {
     /// <summary>
     /// プラグインの本体
     /// Plugin() の第一引数でこのプラグインの仕様を指定
-    /// Plugin() の第二引数でこのプラグインが必要とするAtsEX本体の最低バージョンを指定（オプション）
+    /// Plugin() の第二引数でこのプラグインが必要とするBveEx本体の最低バージョンを指定（オプション）
     /// </summary>
     [Plugin(PluginType.VehiclePlugin)]
     internal class VehiclePluginMain : AssemblyPluginBase
@@ -27,7 +27,7 @@ namespace AtsExCsTemplate.VehiclePlugin
 
         /// <summary>
         /// プラグインが解放されたときに呼ばれる
-        /// 後処理を実装する
+        /// BveEx
         /// </summary>
         public override void Dispose()
         {
@@ -37,9 +37,9 @@ namespace AtsExCsTemplate.VehiclePlugin
         /// シナリオ読み込み中に毎フレーム呼び出される
         /// </summary>
         /// <param name="elapsed">前回フレームからの経過時間</param>
-        public override TickResult Tick(TimeSpan elapsed)
+        public override void Tick(TimeSpan elapsed)
         {
-            return new VehiclePluginTickResult();
+            // 処理を実装
         }
     }
 }

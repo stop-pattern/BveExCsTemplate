@@ -3,19 +3,14 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <RootNamespace>AtsExCsTemplate.Extension</RootNamespace>
+    <RootNamespace>BveExCsTemplate.Extension</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Deterministic>false</Deterministic>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AtsEx.CoreExtensions" Version="1.0.0-rc9">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="AtsEx.PluginHost" Version="1.0.0-rc9">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="BveEx.CoreExtensions" Version="2.0.0" />
   </ItemGroup>
 
 </Project>

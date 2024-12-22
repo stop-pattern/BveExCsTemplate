@@ -1,5 +1,5 @@
-# AtsExCsTemplate
-[AtsEX](https://github.com/automatic9045/AtsEX)を使ったBve5またはBve6用のプラグインのためのテンプレート
+# BveExCsTemplate
+[BveEX](https://github.com/automatic9045/BveEX)を使ったBve5またはBve6用のプラグインのためのテンプレート
 
 
 ## プラグイン開発が初めての人へ
@@ -19,8 +19,8 @@
 
 
 ## 動作環境
-- [AtsEX](https://github.com/automatic9045/AtsEX)
-    - [ver1.0-RC9 - v1.0.40627.1](https://github.com/automatic9045/AtsEX/releases/tag/v1.0.40627.1) or later
+- [BveEX](https://github.com/automatic9045/BveEX)
+    - [ver2.0 - v2.0.41222.1](https://github.com/automatic9045/BveEX/releases/tag/v2.0.41222.1) or later
 - Win10 22H2, Win11 22H2 or later
     - Visual Studio 2022
         - Microsoft Visual Studio Community 2022 (64 ビット) - Current Version 17.5.3
@@ -29,8 +29,8 @@
 
 
 ## 依存環境
-- [AtsEx.CoreExtensions](https://www.nuget.org/packages/AtsEx.CoreExtensions/) (1.0.0-rc9)
-- [AtsEx.PluginHost](https://www.nuget.org/packages/AtsEx.PluginHost/) (1.0.0-rc9)
+- [BveEx.CoreExtensions](https://www.nuget.org/packages/BveEx.CoreExtensions/) (2.0.0)
+    - [BveEx.PluginHost](https://www.nuget.org/packages/BveEx.PluginHost/) (2.0.0)
 
 間接参照を含めたすべての依存情報については、各プロジェクトのフォルダにある `packages.lock.json` をご確認ください。
 
@@ -63,8 +63,8 @@ git clone https://github.com/USERNAME/REPONAME.git
 ```
 
 #### 0.3. Visual Studio でビルドできる状態にする
-1. AtsExCsTemplate.csproj を開いてすべて保存から適当な場所にslnを生成する
-1. NuGetからAtsEx関連のライブラリを入れる（ビルドすれば勝手に入る）
+1. BveExCsTemplate.csproj を開いてすべて保存から適当な場所にslnを生成する
+1. NuGetからBveEx関連のライブラリを入れる（ビルドすれば勝手に入る）
 1. 開発するプラグインの種類に応じて要らないファイルを削除する
     - MapPlugin/
         - マッププラグイン用のプロジェクト
@@ -75,8 +75,8 @@ git clone https://github.com/USERNAME/REPONAME.git
 
 #### 0.4. プラグイン情報の設定
 **Properties/AssemblyInfo.cs**
-BveからAtsExのバージョン情報を見たときに表示される内容を設定できます
-AtsExのバージョン情報画面から見えるのはファイル名と下の3項目です
+BveからBveExのバージョン情報を見たときに表示される内容を設定できます
+BveExのバージョン情報画面から見えるのはファイル名と下の3項目です
 
 - AssemblyTitle
     - プラグインの名前
@@ -100,8 +100,8 @@ AtsExのバージョン情報画面から見えるのはファイル名と下の
 
 ## デバッグについて
 ※この項目に書いてあることは環境によって差異があるかもしれないので適宜自分の環境に合わせて読み替えること
-### 1. 生成物がAtsExから読めるようにする
-そのままの状態でビルドしてもデバッグできないのでBveからAtsEx経由でビルドしたプラグインが読み込めるようにする必要があります  
+### 1. 生成物がBveExから読めるようにする
+そのままの状態でビルドしてもデバッグできないのでBveからBveEx経由でビルドしたプラグインが読み込めるようにする必要があります  
 そのためには大きく次のA,Bで2通りのやり方があります  
 おすすめはBのシンボリックリンク経由です  
 シンボリックリンク経由だとpdbなどのごみがBve側のディレクトリに散らばったりしなくて嬉しいです  
@@ -135,5 +135,5 @@ AtsExのバージョン情報画面から見えるのはファイル名と下の
     - ミスとか良くないところがあったらissue立てるなりしてくれればできる範囲で対応します
     - PR大歓迎！！！
 - 自分用に作ったので適当です、自分が欲しい機能をとりあえず入れてます
-- AtsExとAtsEXがどっちもあったのでここでは引用を除いてコードに準じてAtsExとしています
-    - AtsEXが正式な表記っぽい？
+- BveExとBveEXがどっちもあったのでここでは引用を除いてコードに準じてBveExとしています
+    - BveEXが正式な表記っぽい？
