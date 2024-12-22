@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AtsEx.PluginHost.Plugins;
-using AtsEx.PluginHost.Plugins.Extensions;
+using BveEx.PluginHost.Plugins;
+using BveEx.PluginHost.Plugins.Extensions;
 
-namespace AtsExCsTemplate.Extension
+namespace BveExCsTemplate.Extension
 {
     /// <summary>
     /// プラグインの本体
     /// Plugin() の第一引数でこのプラグインの仕様を指定
-    /// Plugin() の第二引数でこのプラグインが必要とするAtsEX本体の最低バージョンを指定（オプション）
-    /// Togglable を付加するとユーザーがAtsEXのバージョン一覧から有効・無効を切換できる
+    /// Plugin() の第二引数でこのプラグインが必要とするBveEx本体の最低バージョンを指定（オプション）
+    /// Togglable を付加するとユーザーがBveExのバージョン一覧から有効・無効を切換できる
     /// </summary>
     [Plugin(PluginType.Extension)]
     [Togglable]
@@ -51,13 +51,12 @@ namespace AtsExCsTemplate.Extension
         /// シナリオ読み込み中に毎フレーム呼び出される
         /// </summary>
         /// <param name="elapsed">前回フレームからの経過時間</param>
-        public override TickResult Tick(TimeSpan elapsed)
+        public override void Tick(TimeSpan elapsed)
         {
             if (status)
             {
                 // 処理を実装
             }
-            return new ExtensionTickResult();
         }
     }
 }
