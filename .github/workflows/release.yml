@@ -20,9 +20,9 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4.0.0
       - name: Restore nuget packages
-        run: dotnet restore AtsExCsTemplate.sln --locked-mode
+        run: dotnet restore BveExCsTemplate.sln --locked-mode
       - name: Build sln
-        run: dotnet publish .\AtsExCsTemplate.sln --configuration Release --no-restore /p:platform="Any CPU" /p:OutputPath="./out/"
+        run: dotnet publish .\BveExCsTemplate.sln --configuration Release --no-restore /p:platform="Any CPU" /p:OutputPath="./out/"
       - name: Collect artifact
         run: |
           mkdir plugins/
