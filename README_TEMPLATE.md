@@ -197,7 +197,7 @@
 ## 開発環境
 **Todo: 開発環境を必要に応じて変更**
 - [BveEX](https://github.com/automatic9045/BveEX)
-    - [ver2.0 - v2.0.41222.1](https://github.com/automatic9045/BveEX/releases/tag/v2.0.41222.1)
+    - [ver2.0.8 - v2.0.50428.1](https://github.com/automatic9045/BveEX/releases/tag/v2.0.41222.1)
 - Win10 22H2
     - Visual Studio 2022
         - Microsoft Visual Studio Community 2022 (64 ビット) - Current Version 17.5.3
@@ -208,8 +208,8 @@
 
 ## 依存環境
 **Todo: 依存環境を必要に応じて変更**
-- BveEx.CoreExtensions (2.0.0)
-    - BveEx.PluginHost (2.0.0)
+- BveEx.CoreExtensions (2.0.8)
+    - BveEx.PluginHost (2.0.8)
 
 (開発者向け)  
 間接参照を含めたすべての依存情報については、各プロジェクトのフォルダにある `packages.lock.json` をご確認ください。
