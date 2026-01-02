@@ -32,7 +32,6 @@ jobs:
 
     - name: Collect artifact
       run: |
-        ls -alR
         mkdir plugins/
         find . -type f -path '*/out/publish/*.dll' -exec cp {} ./plugins/ \;
       shell: bash
@@ -42,3 +41,22 @@ jobs:
       with:
         name: plugins
         path: ./plugins/
+
+  code-style:
+    name: Code Style Check
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6.0.1
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v5.0.1
+
+    - name: Restore nuget packages
+      run: dotnet restore BveExCsTemplate.sln --locked-mode
+
+    - name: Check code formatting
+      run: dotnet format BveExCsTemplate.sln --verify-no-changes --verbosity diagnostic
+
+    - name: Run code analysis
+      run: dotnet build BveExCsTemplate.sln --configuration Release --no-restore /p:TreatWarningsAsErrors=true /p:EnforceCodeStyleInBuild=true
