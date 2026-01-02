@@ -4,17 +4,17 @@
     ".NETFramework,Version=v4.8": {
       "BveEx.CoreExtensions": {
         "type": "Direct",
-        "requested": "[2.0.0, )",
-        "resolved": "2.0.0",
-        "contentHash": "GEjHTJbW9BiDOXVBsvwtX9TpNF3l9uzvjXgPicHhp/dOWheJwWLVQQFFEEwHQPuSPIOu4uWEwBJc8xUPtCsTcg==",
+        "requested": "[2.0.8, )",
+        "resolved": "2.0.8",
+        "contentHash": "r35lDGdLYG/5PVcjBC/aawM10QtPu5yrrtEy751bF0eWPUAaUI7b1PgMvNApqVuUK7x/nUE34/7kqIkIEYU/TQ==",
         "dependencies": {
-          "BveEx.PluginHost": "2.0.0"
+          "BveEx.PluginHost": "2.0.8"
         }
       },
       "BveEx.PluginHost": {
         "type": "Transitive",
-        "resolved": "2.0.0",
-        "contentHash": "kH1aCuUFISW1/LFyNx1Jm0Y3j9evwzw+w7LLJ+ZUagA4FGLGDRdwPVsa5/vGaySwhOWDXPQdOAi0d0stB2KeZg=="
+        "resolved": "2.0.8",
+        "contentHash": "fa52UOSSwpAXgigrZLE0EMAJj/LbxHHMTqhaMR75WYs0g3oprBMYI/GqsrIrgnc45ciFZWhriupAzyPVh4auTg=="
       }
     }
   }

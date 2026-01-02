@@ -29,8 +29,8 @@
 
 
 ## 依存環境
-- [BveEx.CoreExtensions](https://www.nuget.org/packages/BveEx.CoreExtensions/) (2.0.0)
-    - [BveEx.PluginHost](https://www.nuget.org/packages/BveEx.PluginHost/) (2.0.0)
+- [BveEx.CoreExtensions](https://www.nuget.org/packages/BveEx.CoreExtensions/) (2.0.8)
+    - [BveEx.PluginHost](https://www.nuget.org/packages/BveEx.PluginHost/) (2.0.8)
 
 間接参照を含めたすべての依存情報については、各プロジェクトのフォルダにある `packages.lock.json` をご確認ください。
 
