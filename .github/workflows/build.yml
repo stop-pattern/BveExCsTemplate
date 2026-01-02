@@ -18,10 +18,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6.0.1
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4.0.0
+      uses: actions/setup-dotnet@v5.0.1
 
     - name: Restore nuget packages
       run: dotnet restore BveExCsTemplate.sln --locked-mode
@@ -37,7 +37,7 @@ jobs:
       shell: bash
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v6.0.0
       with:
         name: plugins
         path: ./plugins/
