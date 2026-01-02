@@ -26,18 +26,40 @@ jobs:
       - name: Collect artifact
         run: |
           mkdir plugins/
-          find . -type f -path '*/out/publish/*.dll' -exec cp {} ./plugins/ \;
+          # 各プロジェクトディレクトリからプロジェクト名と同じDLLのみを収集
+          find . -maxdepth 2 -name "*.csproj" -type f | while read csproj; do
+            proj_dir=$(dirname "$csproj")
+            proj_name=$(basename "$csproj" .csproj)
+            dll_path="${proj_dir}/out/publish/${proj_name}.dll"
+            if [ -f "$dll_path" ]; then
+              echo "Collecting: $dll_path"
+              cp "$dll_path" ./plugins/
+            else
+              echo "Warning: $dll_path not found"
+            fi
+          done
+          # 収集結果を表示
+          echo "Collected DLLs:"
+          ls -lh ./plugins/
         shell: bash
       - name: Check assembly version
         id: version
         run: |
-          Get-ChildItem plugins/ -Recurse -Filter "*.dll" -File | foreach {
-          Write-Output $_.FileName
-          $_.FileName
-          "name=$_" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-          $ver=(Get-Item $_.FullName).VersionInfo.FileVersion
-          $ver
-          "version=v$ver" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          $files = Get-ChildItem plugins/ -Filter "*.dll" -File
+          if ($files.Count -eq 0) {
+            Write-Error "No DLL files found in plugins/"
+            exit 1
+          }
+          
+          Write-Output "=== DLL Version Check ==="
+          $firstVersion = $null
+          foreach ($file in $files) {
+            $ver = (Get-Item $file.FullName).VersionInfo.FileVersion
+            Write-Output "$($file.Name): v$ver"
+            if ($null -eq $firstVersion) {
+              $firstVersion = $ver
+              "version=v$ver" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+            }
           }
         shell: pwsh
       - name: Upload artifact
@@ -56,6 +78,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6.0.1
+      - name: Download artifact
+        uses: actions/download-artifact@v6.0.0
+        with:
+          name: plugins
+          path: ./plugins/
       - name: Create tag
         uses: rickstaa/action-create-tag@v1.7.2
         id: "tag_create"
@@ -63,14 +90,6 @@ jobs:
           tag: "${{needs.build.outputs.version}}"
           tag_exists_error: true
           message: "Created tag ${{needs.build.outputs.version}}"
-      - name: Get repository name
-        run: |
-          echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
-          echo "FILE_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}_${{needs.build.outputs.version}}" >> $GITHUB_ENV
-      - name: Compress DLLs
-        run: |
-           cd plugins/
-           zip ${{env.FILE_NAME}}.zip -r *
       - name: Create Release Draft and Upload Release Asset
         uses: softprops/action-gh-release@v2.5.0
         with:
@@ -80,5 +99,5 @@ jobs:
            draft: true
            prerelease: false
            files: |
-             ./plugins/${{env.FILE_NAME}}.zip
+             ./plugins/*.dll
              LICENSE
